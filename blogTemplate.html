@@ -1,38 +1,98 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title></title>
+	<title></title>
 	<meta charset="utf-8">
 	<style type="text/css">
 	*{
 		margin: 0px;
+		line-height: 1.5em;
 		padding: 0px;
+		font-family: Verdana, Geneva, sans-serif /*fit for screen read*/;
 	}
 
+	@keyframes frameName
+{
+	0%   {-webkit-transform: rotate(330deg);}
+	25%  {-webkit-transform: skew(130deg,130deg);}
+	50%  {background-color: #cb0000;}
+	75%  {background-color: #f1f1f1;}
+	100% {-webkit-transform: skew(20deg,160deg);}
+}
+
+@-moz-keyframes frameName /* Firefox */
+{
+	0%   {-moz-transform: rotate(330deg);}
+	25%  {-moz-transform: skew(130deg,130deg);}
+	50%  {background-color: #cb0000;}
+	75%  {background-color: #f1f1f1;}
+	100% {-moz-transform: skew(20deg,160deg);}
+}
+
+@-webkit-keyframes frameName /* Safari and Chrome */
+{
+	0%   {-webkit-transform: rotate(330deg);}
+	25%  {-webkit-transform: skew(130deg,130deg);}
+	50%  {background-color: #cb0000;}
+	75%  {background-color: #f1f1f1;}
+	100% {-webkit-transform: skew(20deg,160deg);}
+}
+
+@-o-keyframes frameName /* Opera */
+{
+	0%   {-ms-transform: rotate(330deg);}
+	25%  {-ms-transform: skew(130deg,130deg);}
+	50%  {background-color: #cb0000;}
+	75%  {background-color: #f1f1f1;}
+	100% {-ms-transform: skew(20deg,160deg);}
+}
+
+@-ms-keyframes frameName /* IE10 */
+{
+	0%   {-ms-transform: rotate(330deg);}
+	25%  {-ms-transform: skew(130deg,130deg);}
+	50%  {background-color: #cb0000;}
+	75%  {background-color: #f1f1f1;}
+	100% {-ms-transform: skew(20deg,160deg);}
+}
+
+
+	body{
+		/*background-image: url(css/img/1.jpg);*/
+		background-attachment: fixed;
+		background-color: #f1f1f1;
+	}
 	#header{
 		background-color: #222;
-		height: 120px;
 		position: fixed;
 		top:0px;
+		left:0px;
+		border-bottom: 5px solid #ccc;
 		width: 100%;
+		z-index: 6;
+		overflow: hidden;
 	}
-	h1{
-		color: #fff;
-	}
+
 	#mainWrap,
 	#headerWrap{
+		position: relative;
+		z-index: 5;
 		width: 750px;
 		margin: 0px auto;
 	}
 	#mainWrap{
-		margin-top: 120px;
+		z-index: 4;
+		margin-top: 130px;
 	}
-	.para{
-		padding:1em;
-		/*border: 1px solid #ccc;
-		border-radius: 10px;
-		box-shadow: inset #d7d7d7 1px 1px 7px;*/
-		margin: 1em 0px;
+
+	.longHeader{
+		opacity: 1;
+		height: 120px;
+
+	}
+	.shortHeader{
+		opacity: 0.8;
+		height: 60px;
 	}
 	.fateTitle{
 		color: #999;
@@ -42,6 +102,7 @@
 		color: #fff
 	}
 	.fateTitle,
+	#header,
 	.transition{
 			transition-duration:0.5s;
 			transition-timing-function:ease-in-out;
@@ -49,32 +110,150 @@
 
 			-webkit-transition-duration:0.5s;
 			-webkit-transition-timing-function:ease-in-out;
-			-webkit-transition-property:height,color;
+			-webkit-transition-property:opacity,color;
 
 			-ms-transition-duration:0.5s;
 			-ms-transition-timing-function:ease-in-out;
-			-ms-transition-property:height,color;
+			-ms-transition-property:opacity,color;
 			
 			-moz-transition-duration:0.5s;
 			-moz-transition-timing-function:ease-in-out;
-			-moz-transition-property:height,color;
+			-moz-transition-property:opacity,color;
+	}
+	h1{
+		width: 250px;
+		float: left;
+		height: 40px;
+		padding: 10px 0px;
+		position: relative;
+		color: #fff;
+		font-family: Impact, Charcoal, sans-serif /*fit for the title*/;
+		font-size: 34px;
+	}
+	h1 span.subTitle{
+		position: absolute;
+		bottom: -35px;
+		left: 0px;
+		font-size: 12px;
+		color: #f1f1f1;
 	}
 	.nav{
+		bottom:0px;
+		right: 0px;
 		height: 80px;
 	}
 	.nav li{
 		float: right;
+		padding: 1em 0px;
 		margin: 0px 1em;
 		display: block;
-		height: 100%;
+	}
+	.nav li:hover{
+		background-color: #cb0000;
+	}
+	.dateMeta{
+		margin: 1em;
+		font-size: .8em;
+		color: #888;
+	}
+	#footer{
+		position: fixed;
+		right:0px;
+		bottom: 0px;
+		background-color: #f1f1f1;
+		border: 1px solid #ccc;
+		padding:1em;
+	}
+	#footer p.meta{
+		font-size: .8em;
+		color: #cb0000;
+	}
+	.imgWrap{
+		height: 50px;
+		overflow: hidden;
+	}
+
+	.autoImg{
+		display: none;
+	}
+	.para{
+		padding: 1em;
+		margin: 2em 0px;
+		line-height: 1.5em;
+		position: relative;
+		overflow: hidden;
+	}
+	.para:hover p{
+		color: #999;
+	}
+
+	@keyframes showA
+	{
+		0% { bottom: -40px;}
+		35%{ bottom: 40px;}
+		100%{ bottom:20px;}
+	}
+	@-webkit-keyframes showA
+	{
+		0% { bottom: -40px;}
+		35%{ bottom: 40px;}
+		100%{ bottom:20px;}
+	}
+	@-moz-keyframes showA
+	{
+		0% { bottom: -40px;}
+		35%{ bottom: 40px;}
+		100%{ bottom:20px;}
+	}
+	@-ms-keyframes showA
+	{
+		0% { bottom: -40px;}
+		35%{ bottom: 40px;}
+		100%{ bottom:20px;}
+	}
+	@-o-keyframes showA
+	{
+		0% { bottom: -40px;}
+		35%{ bottom: 40px;}
+		100%{ bottom:20px;}
+	}
+	.para:hover .autoImg{
+		display: block;
+		position: absolute;
+		left: 30px;
+		bottom: 20px;
+		background-color: #fff;
+		padding:10px;
+		border: 1px solid #f2f2f2;
+		box-shadow: inset  1px 1px 7px #f1f1f1;
+		border-radius: 5px;
+			-webkit-animation-name: showA;
+			-webkit-animation-duration: 0.5s;
+			-webkit-animation-timing-function: ease-in-out;
+			-webkit-animation-iteration-count: 1;
+
+			-ms-animation-name: showA;
+			-ms-animation-duration: 0.5s;
+			-ms-animation-timing-function: ease-in-out;
+			-ms-animation-iteration-count: 1;
+
+			-moz-animation-name: showA;
+			-moz-animation-duration: 0.5s;
+			-moz-animation-timing-function: ease-in-out;
+			-moz-animation-iteration-count: 1;
+
+			-o-animation-name: showA;
+			-o-animation-duration: 0.5s;
+			-o-animation-timing-function: ease-in-out;
+			-o-animation-iteration-count: 1;
 	}
 </style>
 </head>
 
 <body>
-	<div id='header' >
+	<div id='header'  class='longHeader'>
 		<div id='headerWrap'>
-			<h1>title1</h1>
+			<h1>title1<span class='subTitle'>black sheep wall</span></h1>
 			<ul class='nav'>
 				<li><a class='fateTitle'>page1</a>
 				</li>
@@ -90,34 +269,50 @@
 	<div id='mainWrap'>
 		<section class='para'>
 		<h2>The Road to Enlightenment</h2>
+		<p class='dateMeta'>2013-7-10</p>
+		
 			<p>Littering a dark and dreary road lay the past relics of browser-specific tags, incompatible DOMs, broken CSS support, and abandoned browsers.</p>
 				<p>
 				We must clear the mind of the past. Web enlightenment has been achieved thanks to the tireless efforts of folk like the W3C, WaSP, and the major browser creators.
 				</p>
 				<p>
 				The CSS Zen Garden invites you to relax and meditate on the important lessons of the masters. Begin to see with clarity. Learn to use the time-honored techniques in new and invigorating fashion. Become one with the web.</p>
+				<p class='imgWrap'>
+					<img src="css/img/2.jpg">
+				</p>
 		</section>
 
 		<section class='para'>
 			<h2>So What is This About?</h2>
+			<p class='dateMeta'>2013-7-10</p>
 			<p>There is a continuing need to show the power of CSS. The Zen Garden aims to excite, inspire, and encourage participation. To begin, view some of the existing designs in the list. Clicking on any one will load the style sheet into this very page. The HTML remains the same, the only thing that has changed is the external CSS file. Yes, really.</p>
 			<p>CSS allows complete and total control over the style of a hypertext document. The only way this can be illustrated in a way that gets people excited is by demonstrating what it can truly be, once the reins are placed in the hands of those able to create beauty from structure. Designers and coders alike have contributed to the beauty of the web; we can always push it further.</p>
+			<p class='autoImg'>
+				<img src="img/2b484a69d9e2509ed4e632525fdd8cfc.gif">
+			</p>
 		</section>
 
 		<section class='para'>
 			<h2>Participation</h2>
+			<p class='dateMeta'>2013-7-10</p>
 			<p>Strong visual design has always been our focus. You are modifying this page, so strong CSS skills are necessary too, but the example files are commented well enough that even CSS novices can use them as starting points. Please see the CSS Resource Guide for advanced tutorials and tips on working with CSS.</p>
 			<p>You may modify the style sheet in any way you wish, but not the HTML. This may seem daunting at first if you’ve never worked this way before, but follow the listed links to learn more, and use the sample files as a guide.</p>
 			<p>Download the sample HTML and CSS to work on a copy locally. Once you have completed your masterpiece (and please, don’t submit half-finished work) upload your CSS file to a web server under your control. Send us a link to an archive of that file and all associated assets, and if we choose to use it we will download it and place it on our server.</p>
+			<p class='autoImg'>
+				这是个SB
+				<img src="img/sb.gif">
+			</p>
 		</section>
 
 		<section class='para'>
 		<h2>Benefits</h2>
+		<p class='dateMeta'>2013-7-10</p>
 		<p>Why participate? For recognition, inspiration, and a resource we can all refer to showing people how amazing CSS really can be. This site serves as equal parts inspiration for those working on the web today, learning tool for those who will be tomorrow, and gallery of future techniques we can all look forward to.</p>
 		</section>
 
 		<section class='para'>
 		<h2>The Road to Enlightenment</h2>
+		<p class='dateMeta'>2013-7-10</p>
 			<p>There is a continuing need to show the power of CSS. The Zen Garden aims to excite, inspire, and encourage participation. To begin, view some of the existing designs in the list. Clicking on any one will load the style sheet into this very page. The HTML remains the same, the only thing that has changed is the external CSS file. Yes, really.</p>
 			<p>CSS allows complete and total control over the style of a hypertext document. The only way this can be illustrated in a way that gets people excited is by demonstrating what it can truly be, once the reins are placed in the hands of those able to create beauty from structure. Designers and coders alike have contributed to the beauty of the web; we can always push it further.</p>
 			<p>Strong visual design has always been our focus. You are modifying this page, so strong CSS skills are necessary too, but the example files are commented well enough that even CSS novices can use them as starting points. Please see the CSS Resource Guide for advanced tutorials and tips on working with CSS.</p>
@@ -125,15 +320,15 @@
 
 		<section class='para'>
 		<h2>The Road to Enlightenment</h2>
+		<p class='dateMeta'>2013-7-10</p>
 			<p>There is a continuing need to show the power of CSS. The Zen Garden aims to excite, inspire, and encourage participation. To begin, view some of the existing designs in the list. Clicking on any one will load the style sheet into this very page. The HTML remains the same, the only thing that has changed is the external CSS file. Yes, really.</p>
 			<p>CSS allows complete and total control over the style of a hypertext document. The only way this can be illustrated in a way that gets people excited is by demonstrating what it can truly be, once the reins are placed in the hands of those able to create beauty from structure. Designers and coders alike have contributed to the beauty of the web; we can always push it further.</p>
-			<p>Strong visual design has always been our focus. You are modifying this page, so strong CSS skills are necessary too, but the example files are commented well enough that even CSS novices can use them as starting points. Please see the CSS Resource Guide for advanced tutorials and tips on working with CSS.</p>
-		</section>
+			<p>Strong visual design has always been our focus. You are modifying this page, so strong CSS skills are necessary too, but the example files are commented well enough that even CSS novices can use them as starting points. Please see the CSS Resource Guide for ad.</p>
 
 	</div>
 	<div id='footer'>
 		<p class='meta'>
-			pulished
+			Published with GitHub Pages
 		</p>
 	</div>
 	<script type="text/javascript">
@@ -142,9 +337,9 @@
 				ms_top = document.documentElement.scrollTop,
 				header = document.getElementById("header");
 				if(w_top < 150 && ms_top < 150){
-					header.style.height='120px';
+					header.className = "longHeader";
 				}else{
-					header.style.height='60px';
+					header.className="shortHeader";
 				}
 		}
 	</script>
