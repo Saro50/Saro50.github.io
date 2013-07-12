@@ -1,4 +1,4 @@
-*{
+	*{
 		margin: 0px;
 		line-height: 1.5em;
 		padding: 0px;
@@ -124,10 +124,6 @@
 		font-family: Impact, Charcoal, sans-serif /*fit for the title*/;
 		font-size: 34px;
 	}
-	h1 a{
-		text-decoration: none;
-		color: #fff;
-	}
 	h1 span.subTitle{
 		position: absolute;
 		bottom: -35px;
@@ -142,7 +138,7 @@
 	}
 	.nav li{
 		float: right;
-		padding: 1em 0px;
+		padding: 1em;
 		margin: 0px 1em;
 		display: block;
 	}
@@ -150,16 +146,15 @@
 		background-color: #cb0000;
 	}
 	.dateMeta{
-		margin: 1em;
+		margin: 1em 0px;
 		font-size: .8em;
+		border-bottom: 5px solid #cb0000;
 		color: #888;
 	}
 	#footer{
 		position: fixed;
 		right:0px;
 		bottom: 0px;
-		background-color: #f1f1f1;
-		border: 1px solid #ccc;
 		padding:1em;
 	}
 	#footer p.meta{
@@ -174,17 +169,25 @@
 	.autoImg{
 		display: none;
 	}
+	.section,
 	.para{
 		padding: 1em;
 		margin: 2em 0px;
+		border:2px solid #f1f1f1;
 		line-height: 1.5em;
 		position: relative;
+
 		overflow: hidden;
+	}
+	.para:hover{
+		border: 2px solid #ccc;
+		border-radius: 5px;
+		box-shadow: inset 1px 1px 7px #ccc;
+
 	}
 	.para:hover p{
 		color: #999;
 	}
-
 	@keyframes showA
 	{
 		0% { bottom: -40px;}
