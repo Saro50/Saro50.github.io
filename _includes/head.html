@@ -1,0 +1,20 @@
+<div id='header'  class='longHeader'>
+		<div id='headerWrap'>
+			<h1><a href='/'>写写画画</a><span class='subTitle'>我的贱就是你的贱---易大师</span></h1>
+			<ul class='nav'>
+		
+			</ul>
+		</div>
+	</div>
+	<script type="text/javascript">
+		window.onscroll = function(e){
+			var w_top = document.body.scrollTop,
+				ms_top = document.documentElement.scrollTop,
+				header = document.getElementById("header");
+				if(w_top < 150 && ms_top < 150){
+					header.className = "longHeader";
+				}else{
+					header.className="shortHeader";
+				}
+		}
+	</script>
