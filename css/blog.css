@@ -54,19 +54,72 @@
 	body{
 		/*background-image: url(css/img/1.jpg);*/
 		background-attachment: fixed;
-		background-color: #f1f1f1;
+		padding-top: 120px;
+		background-color: #fff;
+	}
+
+
+#intro{
+	background-color: #87e3eb;
+}
+	a.topBtn{
+		display: block;
+		position: absolute;
+		top: 0px;
+		text-decoration: none;
+		padding: 10px;
+		color: #fff;
+		font-weight: 400;
+		/*box-shadow: 0 0 10px rgba(0,0,0,.5);*/
+		border-bottom-left-radius: 2px;
+		border-bottom-right-radius: 2px;
+		text-decoration: none;
+	}
+	a.topBtn:hover{
+		top:10px;
+		background-color: #cb0000;
+	}
+	
+
+	a.forkme_banner {
+	  /*display: inline-block;*/
+	  /*text-decoration: none;*/
+	  padding: 10px 50px 10px 10px;
+	  /*color: #fff;*/
+	  top:0px;
+	  right: 0px;
+	  background: url('../images/blacktocat.png') #0090ff no-repeat 95% 50%;
+	  /*font-weight: 400;
+	  box-shadow: 0 0 10px rgba(0,0,0,.5);
+	  border-bottom-left-radius: 5px;
+	  border-bottom-right-radius: 5px;*/
+	}
+	.topPre{
+		background-color: #58cfc8;
+		top:0px;
+		right: 190px;
+	}
+	.topNext{
+		top:0px;
+		background-color: #cfcd4c;
+		right: 313px;
+	}
+	.topPre,
+	.topNext{
+		
+		width: 100px;
 	}
 	#header{
 		background-color: #222;
 		position: fixed;
 		top:0px;
 		left:0px;
-		border-bottom: 5px solid #ccc;
+		/*border-bottom: 5px solid #ccc;*/
 		width: 100%;
 		z-index: 6;
 		overflow: hidden;
 	}
-
+	
 	#mainWrap,
 	#headerWrap{
 		position: relative;
@@ -76,7 +129,6 @@
 	}
 	#mainWrap{
 		z-index: 4;
-		margin-top: 130px;
 	}
 
 	.longHeader{
@@ -88,6 +140,9 @@
 		opacity: 0.8;
 		height: 60px;
 	}
+	.shortHeader h1{
+		padding: 0px;
+	}
 	.fateTitle{
 		color: #999;
 		cursor: pointer;
@@ -97,22 +152,24 @@
 	}
 	.fateTitle,
 	#header,
+	a.topBtn,
+	.para,
 	.transition{
 			transition-duration:0.5s;
 			transition-timing-function:ease-in-out;
-			transition-property:background-color;
+			transition-property:background;
 
 			-webkit-transition-duration:0.5s;
 			-webkit-transition-timing-function:ease-in-out;
-			-webkit-transition-property:opacity,color;
+			-webkit-transition-property:opacity,color,background,top,box-shadow;
 
 			-ms-transition-duration:0.5s;
 			-ms-transition-timing-function:ease-in-out;
-			-ms-transition-property:opacity,color;
+			-ms-transition-property:opacity,color,background,top,box-shadow;
 			
 			-moz-transition-duration:0.5s;
 			-moz-transition-timing-function:ease-in-out;
-			-moz-transition-property:opacity,color;
+			-moz-transition-property:opacity,color,background,top,box-shadow;
 	}
 	h1{
 		width: 250px;
@@ -145,10 +202,10 @@
 	.nav li:hover{
 		background-color: #cb0000;
 	}
+	
 	.dateMeta{
 		margin: 1em 0px;
 		font-size: .8em;
-		border-bottom: 5px solid #cb0000;
 		color: #888;
 	}
 	#footer{
@@ -171,18 +228,15 @@
 	}
 	.section,
 	.para{
-		padding: 1em;
-		margin: 2em 0px;
-		border:2px solid #f1f1f1;
+		width: 710px;
+		padding: 20px;
+		margin: 0em auto;
 		line-height: 1.5em;
 		position: relative;
-
+		color: #005E83;
 		overflow: hidden;
 	}
-	.para:hover{
-		border: 2px solid #ccc;
-		border-radius: 5px;
-		box-shadow: inset 1px 1px 7px #ccc;
+	.para{
 
 	}
 	.para:hover p{
