@@ -1,3 +1,15 @@
+<script type="text/javascript">
+		window.onscroll = function(e){
+			var w_top = document.body.scrollTop,
+				ms_top = document.documentElement.scrollTop,
+				header = document.getElementById("header");
+				if(w_top < 150 && ms_top < 150){
+					header.className = "longHeader";
+				}else{
+					header.className="shortHeader";
+				}
+		}
+	</script>
 <div id='footer'>
 		<p class='meta'>
 			Published with GitHub Pages

@@ -2,9 +2,12 @@
 layout: blog
 
 ---
-<h2>{{ page.title }}</h2>
-<p class="meta">{{ page.date | date_to_string }}</p>
-
-<div class="post">
-{{ content }}
+<div class='para description'>
+			<h2>{{ page.title }}</h2>
+			<p class="meta">{{ page.date | date_to_string }}</p>
+			
+				{{ content }}
+					<p class='imgWrap'>
+						<img src="images/intro_bg.gif">
+					</p>
 </div>
