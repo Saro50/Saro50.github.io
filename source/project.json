@@ -1,0 +1,14 @@
+/*
+	@date 2013-9-26
+	@author wn
+	Project files
+*/
+
+{
+ 	"dld": {
+		 "ysh" : "D:/WN/svn/branch_ysh",
+		"bug" : "D:/WN/svn/branch_bug",
+		"turnk" : "D:/WN/svn/Turnk_dld"
+	},
+	"supermarket" : "D:/WN/svn/branch_supermarket"
+ }
