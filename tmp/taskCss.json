@@ -1,0 +1,34 @@
+{	
+ 	"widgets":{
+	    "jQuery" : {
+	    	"static/js/jquery.js" : [ "src/jQuery.js" ]
+	    	},
+	 	"MKPtool":{
+	 		"description" : {
+	 			"project" : [ "dld" , "supermarket" ] , 
+	 			"required" : [ "jQuery" ]
+	 			} ,
+	    	"static/js/MKPtool/_MKP.js":["src/intro.js","src/MKP_base.js","src/MKP.selection.js","src/MKP.pager.js","src/outro.js"]
+	    },
+	    "mDLD" : {
+	    	"description" : {
+	 			"project" : [ "dld" , "supermarket" ] 
+	 			} ,
+	    	"static/js/public/mDLD.js" : ["mDLD.js"]
+	    	}  
+	    },
+	"dld" : {
+		"Index" : { 
+			    "required":["<%= mDLD %>","sea.js","jQuery.js","dialog.js","play.js","goble.js","<%= MKPtool %>"],
+			    "static/js/public/Index.js":["src/index.js"]
+		    },
+		"meishi": ["<%= mDLD %>","sea.js","jQuery.js","library.js","dialog.js","goble.js"]
+	 },
+	"supermarket" : {
+		"Index" : {
+			"required" : ["<%= mDLD %>","sea.js","jQuery.js","<%= MKPtool %>"],
+			"static/js/index.js" : ["src/index.js"]
+		}
+	}
+
+ }

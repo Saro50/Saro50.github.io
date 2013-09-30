@@ -1,0 +1,9 @@
+{
+ 	"dld": {
+		 "ysh" : "D:/WN/svn/branch_ysh/",
+		"bug" : "D:/WN/svn/branch_bug/",
+		"turnk" : "D:/WN/svn/Turnk_dld/"
+	},
+	"supermarket" : "D:/WN/svn/branch_supermarket/",
+	"node" : "D:/WN/node/build"
+ }
