@@ -25,8 +25,46 @@
 						<img src="images/xiao.gif">
 					</p>
 			</div>
+			<div id='table_men' style="font-size:32px;color:#333;font-family:Helvetica, Arial, sans-serif;text-shadow:1px 1px 7px #000;">
+				
+			</div>
 		{{ content }}
+<script>
+ var scenes = function(){
+    var act = true,
+      putScene = ["%c ┬─┬ ノ( ' - 'ノ)","%c ┬─┬ ノ( @ - @ノ)☆","%c ┬─┬ ノ( ^ v ^ノ)","%c ┬─┬ ノ( < _ < ノ)"],
+      tableScene = [
+                  "%c (╯' - ')╯︵ ┻━┻",
+                  "%c (╯°Д°)╯︵ ┻━┻",
+                  "%c (#＝皿＝)╯︵┻━┻ ",
+                  "%c (╯‵皿′)╯︵┻━┻ ",
+                  "%c (╯′ -｀)╯ ┫:·'∵:.┻┻:·'.:┣∵·:. ┳┳☆"],
+      putWords = ["咦，有张桌子 ? ","哇塞，运气好好，又有一张","就要吃饭饭了~看我的饭桌 ","天上掉下个大桌子~~","这桌子摸起来好滑！","当我正在思考人生的时候，我的面前居然有张桌子","当我感觉想拉粑粑的时候，我的面前居然有张桌子"],
+      tableWords = ["哎哟!手滑","试试质量!","我的大刀早已饥渴难耐了！!","我掀！","居然出现在我的面前！","人生真是寂寞如雪!"],
+      shape = "font-size:32px;color:#333;font-family:Helvetica, Arial, sans-serif;text-shadow:1px 1px 7px #000;";
 
+    return function(){
+        var movie = "", w_num = 0 , t_num = 0;
+        if(act){
+          var w_num = Math.ceil( putScene.length * Math.random() ) - 1,
+              t_num = Math.ceil( putWords.length * Math.random() ) - 1;
+          movie = putScene[w_num] + " " + putWords[t_num]; 
+        }else{
+          var w_num = Math.ceil( tableScene.length * Math.random() ) - 1,
+              t_num = Math.ceil( tableWords.length * Math.random() ) - 1;
+          movie = tableScene[w_num] + " " + tableWords[t_num];   
+        }
+          act =!act;
+          document.getElementById("table_men").innerHTML = movie;
+          console.log( movie , shape );
+          // console.log(scene[act++],shape );
+        }
+  }();
+  setInterval(function(){
+    scenes();
+  },1500);	
+
+</script>
 	</div>
 	
 	{% include footer.html %}
